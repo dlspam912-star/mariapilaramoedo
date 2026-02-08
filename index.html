@@ -52,13 +52,12 @@
             border: none;
         }
 
-        /* Estilo para el botón de emergencia si el PDF no carga */
         .pdf-fallback-btn {
             display: none;
             position: absolute;
             bottom: 20px;
             right: 20px;
-            z-index: 10;
+            z-index: 20;
         }
     </style>
 </head>
@@ -180,7 +179,7 @@
         <!-- SECCIÓN: PROYECTOS -->
         <section id="proyectos" class="section-content">
             <h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Proyectos Editoriales</h2>
-            <p class="text-slate-500 text-lg mb-10 font-light">Haz clic en un proyecto para previsualizarlo. Si el visor no carga, usa el botón de "Ampliar".</p>
+            <p class="text-slate-500 text-lg mb-10 font-light">Haz clic en un proyecto. Si el visor no se activa, usa el botón de "Abrir en Pantalla Completa".</p>
 
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <button onclick="loadPDF('informe.pdf')" class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-dorado hover:shadow-xl transition-all text-left group">
@@ -217,9 +216,8 @@
                 <div id="pdf-frame-container" class="hidden w-full h-full relative">
                     <iframe id="pdf-iframe" src="" class="w-full h-full"></iframe>
                     
-                    <!-- Botón de apertura externa por si falla el iframe -->
                     <a id="pdf-external-link" href="#" target="_blank" class="pdf-fallback-btn flex items-center gap-2 px-6 py-3 bg-dorado text-slate-900 font-bold rounded-full shadow-lg hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-up-right-from-square"></i> Ver en Pantalla Completa
+                        <i class="fa-solid fa-up-right-from-square"></i> Abrir en Pantalla Completa
                     </a>
                 </div>
             </div>
@@ -227,7 +225,7 @@
 
     </main>
 
-    <!-- Footer Persistente -->
+    <!-- Footer -->
     <footer class="bg-slate-900 text-white py-14 px-6 mt-auto">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="text-center md:text-left">
@@ -239,10 +237,6 @@
                 <a href="https://www.linkedin.com/in/maría-pilar-amoedo-levchenko-b213342ba" target="_blank" class="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all border border-white/10 group">
                     <i class="fa-brands fa-linkedin-in text-dorado"></i>
                     <span class="font-bold text-sm uppercase tracking-widest group-hover:text-dorado transition-colors">LinkedIn</span>
-                </a>
-                <a href="tel:+34646555778" class="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all border border-white/10 group">
-                    <i class="fa-solid fa-phone text-dorado"></i>
-                    <span class="font-bold text-sm uppercase tracking-widest group-hover:text-dorado transition-colors">Teléfono</span>
                 </a>
                 <a href="mailto:mariapilar.amoedo@gmail.com" class="flex items-center justify-center gap-3 px-8 py-4 bg-dorado hover-bg-dorado rounded-xl transition-all shadow-xl shadow-amber-900/40">
                     <i class="fa-solid fa-envelope text-slate-900"></i>
@@ -259,13 +253,10 @@
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.section-content');
             sections.forEach(s => s.classList.remove('active'));
-
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(b => b.classList.remove('active'));
-
             document.getElementById(sectionId).classList.add('active');
             document.getElementById('btn-' + sectionId).classList.add('active');
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -276,23 +267,17 @@
             const viewerBox = document.getElementById('pdf-viewer-box');
             const externalLink = document.getElementById('pdf-external-link');
 
-            // Limpiar src antes de cargar para evitar errores visuales
-            pdfIframe.src = "";
-            
-            // Usamos ruta relativa "./" para asegurar que GitHub Pages lo encuentre
+            // Generar ruta relativa limpia
             const filePath = "./" + fileName;
             
-            // Forzar carga en el iframe
-            setTimeout(() => {
-                pdfIframe.src = filePath;
-            }, 100);
-
-            // Actualizar el enlace del botón de emergencia
+            // Cargar archivo
+            pdfIframe.src = filePath;
             externalLink.href = filePath;
-            externalLink.style.display = "flex";
 
+            // Mostrar elementos
             placeholder.classList.add('hidden');
             frameContainer.classList.remove('hidden');
+            externalLink.style.display = "flex";
             
             viewerBox.classList.remove('border-dashed');
             viewerBox.classList.add('border-solid', 'border-dorado', 'bg-white');
