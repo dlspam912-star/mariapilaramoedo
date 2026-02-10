@@ -59,40 +59,54 @@
             right: 20px;
             z-index: 20;
         }
+
+        /* Estilo para la foto de perfil en la cabecera */
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--dorado);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
     <!-- Header / Navegación -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="max-w-5xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-2xl font-extrabold tracking-tight text-slate-900">
-                MARÍA PILAR <span class="text-dorado">AMOEDO</span>
+        <nav class="max-w-5xl mx-auto px-6 py-4 flex flex-col md:row justify-between items-center gap-4 md:flex-row">
+            <div class="flex items-center gap-4">
+                <!-- Tu foto de perfil -->
+                <img src="imagen.pdf" alt="María Pilar Amoedo" class="profile-img" onerror="this.style.display='none'">
+                <div class="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900">
+                    MARÍA PILAR <span class="text-dorado">AMOEDO</span>
+                </div>
             </div>
-            <div class="flex space-x-8">
-                <button onclick="showSection('experiencia')" id="btn-experiencia" class="nav-btn active text-sm uppercase tracking-widest hover:text-dorado transition-colors">Experiencia</button>
-                <button onclick="showSection('competencias')" id="btn-competencias" class="nav-btn text-sm uppercase tracking-widest hover:text-dorado transition-colors">Competencias</button>
-                <button onclick="showSection('proyectos')" id="btn-proyectos" class="nav-btn text-sm uppercase tracking-widest hover:text-dorado transition-colors">Proyectos</button>
+            <div class="flex space-x-6 md:space-x-8">
+                <button onclick="showSection('experiencia')" id="btn-experiencia" class="nav-btn active text-xs md:text-sm uppercase tracking-widest hover:text-dorado transition-colors">Experiencia</button>
+                <button onclick="showSection('competencias')" id="btn-competencias" class="nav-btn text-xs md:text-sm uppercase tracking-widest hover:text-dorado transition-colors">Competencias</button>
+                <button onclick="showSection('proyectos')" id="btn-proyectos" class="nav-btn text-xs md:text-sm uppercase tracking-widest hover:text-dorado transition-colors">Proyectos</button>
             </div>
         </nav>
     </header>
 
     <!-- Contenido Principal -->
-    <main class="flex-grow max-w-5xl mx-auto px-6 py-16 w-full">
+    <main class="flex-grow max-w-5xl mx-auto px-6 py-12 md:py-16 w-full">
         
         <!-- SECCIÓN: EXPERIENCIA -->
         <section id="experiencia" class="section-content active">
-            <div class="mb-16">
+            <div class="mb-12 md:mb-16">
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-900 text-balance text-center md:text-left">Experiencia Profesional</h1>
-                <p class="text-xl text-slate-500 font-light max-w-2xl mx-auto md:mx-0">Especialista en comunicación estratégica, gestión de eventos y periodismo de impacto social.</p>
+                <p class="text-lg md:text-xl text-slate-500 font-light max-w-2xl mx-auto md:mx-0 text-center md:text-left">Especialista en comunicación estratégica, gestión de eventos y periodismo de impacto social.</p>
             </div>
 
-            <div class="space-y-16">
+            <div class="space-y-12 md:space-y-16">
                 <div class="relative pl-8">
                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-dorado rounded-full"></div>
                     <span class="inline-block px-3 py-1 bg-dorado text-white text-[10px] font-bold uppercase tracking-tighter rounded mb-4">Actualidad</span>
-                    <h3 class="text-3xl font-bold text-slate-900">Organizadora de TEDxCesine</h3>
-                    <p class="text-lg text-slate-600 mt-3 leading-relaxed">
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Organizadora de TEDxCesine</h3>
+                    <p class="text-base md:text-lg text-slate-600 mt-3 leading-relaxed">
                         Liderando la organización integral del evento <strong class="text-slate-900">"Regénesis"</strong>. 
                         Responsable de la narrativa de marca, curación de ponentes y gestión de equipos multidisciplinares bajo estándares internacionales.
                     </p>
@@ -101,8 +115,8 @@
                 <div class="relative pl-8">
                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-200 rounded-full"></div>
                     <span class="inline-block px-3 py-1 bg-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-tighter rounded mb-4">Eventos</span>
-                    <h3 class="text-3xl font-bold text-slate-900">Coorganización Fashion Show 2025</h3>
-                    <p class="text-lg text-slate-600 mt-3 leading-relaxed">
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Coorganización Fashion Show 2025</h3>
+                    <p class="text-base md:text-lg text-slate-600 mt-3 leading-relaxed">
                         Gestión logística y coordinación de backstage en el Escenario de Santander, asegurando la fluidez de la producción en tiempo real.
                     </p>
                 </div>
@@ -110,27 +124,27 @@
                 <div class="relative pl-8">
                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-200 rounded-full"></div>
                     <span class="inline-block px-3 py-1 bg-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-tighter rounded mb-4">Formación Académica</span>
-                    <h3 class="text-3xl font-bold text-slate-900">Doble Grado Universitario</h3>
-                    <p class="text-lg text-slate-600 mt-3">Publicidad, Marketing, RRPP y Periodismo | <span class="font-semibold italic">Centro Universitario CESINE</span>.</p>
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Doble Grado Universitario</h3>
+                    <p class="text-base md:text-lg text-slate-600 mt-3">Publicidad, Marketing, RRPP y Periodismo | <span class="font-semibold italic">Centro Universitario CESINE</span>.</p>
                     
-                    <h3 class="text-2xl font-bold text-slate-900 mt-8">Bachillerato Internacional (IB)</h3>
-                    <p class="text-lg text-slate-600 mt-2">Colegio Británico de Aragón.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-slate-900 mt-8">Bachillerato Internacional (IB)</h3>
+                    <p class="text-base md:text-lg text-slate-600 mt-2">Colegio Británico de Aragón.</p>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN: COMPETENCIAS -->
         <section id="competencias" class="section-content">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight">Competencias y Aptitudes</h2>
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-12 tracking-tight">Competencias y Aptitudes</h2>
             
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100">
-                    <h3 class="text-2xl font-bold mb-8 flex items-center text-slate-900">
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="text-xl md:text-2xl font-bold mb-8 flex items-center text-slate-900">
                         <i class="fa-solid fa-language mr-4 text-dorado"></i> Idiomas
                     </h3>
                     <div class="space-y-6">
                         <div>
-                            <div class="flex justify-between mb-2 uppercase text-xs font-bold tracking-widest text-slate-400">
+                            <div class="flex justify-between mb-2 uppercase text-[10px] font-bold tracking-widest text-slate-400">
                                 <span>Español</span>
                                 <span>Nativo</span>
                             </div>
@@ -139,7 +153,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2 uppercase text-xs font-bold tracking-widest text-slate-400">
+                            <div class="flex justify-between mb-2 uppercase text-[10px] font-bold tracking-widest text-slate-400">
                                 <span>Inglés</span>
                                 <span>C1 Advanced</span>
                             </div>
@@ -148,7 +162,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2 uppercase text-xs font-bold tracking-widest text-slate-400">
+                            <div class="flex justify-between mb-2 uppercase text-[10px] font-bold tracking-widest text-slate-400">
                                 <span>Alemán</span>
                                 <span>A2 Inicial</span>
                             </div>
@@ -159,18 +173,18 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100">
-                    <h3 class="text-2xl font-bold mb-8 flex items-center text-slate-900">
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="text-xl md:text-2xl font-bold mb-8 flex items-center text-slate-900">
                         <i class="fa-solid fa-bolt mr-4 text-dorado"></i> Aptitudes
                     </h3>
-                    <div class="flex flex-wrap gap-4">
-                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium hover:border-dorado transition-colors">Adobe Illustrator</span>
-                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium hover:border-dorado transition-colors">Photoshop</span>
-                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium hover:border-dorado transition-colors">InDesign</span>
-                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium hover:border-dorado transition-colors">Gestión de Crisis</span>
-                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium hover:border-dorado transition-colors">Producción de Eventos</span>
-                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium hover:border-dorado transition-colors">Relaciones Públicas</span>
-                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium hover:border-dorado transition-colors">Periodismo de Investigación</span>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs md:text-sm font-medium hover:border-dorado transition-colors">Adobe Illustrator</span>
+                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs md:text-sm font-medium hover:border-dorado transition-colors">Photoshop</span>
+                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs md:text-sm font-medium hover:border-dorado transition-colors">InDesign</span>
+                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs md:text-sm font-medium hover:border-dorado transition-colors">Gestión de Crisis</span>
+                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs md:text-sm font-medium hover:border-dorado transition-colors">Producción de Eventos</span>
+                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs md:text-sm font-medium hover:border-dorado transition-colors">Relaciones Públicas</span>
+                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs md:text-sm font-medium hover:border-dorado transition-colors">Periodismo de Investigación</span>
                     </div>
                 </div>
             </div>
@@ -178,15 +192,15 @@
 
         <!-- SECCIÓN: PROYECTOS -->
         <section id="proyectos" class="section-content">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Proyectos Editoriales</h2>
-            <p class="text-slate-500 text-lg mb-10 font-light">Haz clic en un proyecto. Si el visor no se activa, usa el botón de "Abrir en Pantalla Completa".</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Proyectos Editoriales</h2>
+            <p class="text-slate-500 text-base md:text-lg mb-10 font-light">Haz clic en un proyecto. Si el visor no se activa, usa el botón de "Abrir en Pantalla Completa".</p>
 
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <button onclick="loadPDF('informe.pdf')" class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-dorado hover:shadow-xl transition-all text-left group">
                     <div class="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-dorado-light transition-colors">
                         <i class="fa-solid fa-magnifying-glass text-slate-400 group-hover:text-dorado"></i>
                     </div>
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 text-xs">Reportaje de Investigación</span>
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Reportaje de Investigación</span>
                     <span class="font-bold text-slate-900 leading-tight">La vida que no aparece en los informes</span>
                 </button>
 
@@ -194,7 +208,7 @@
                     <div class="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-dorado-light transition-colors">
                         <i class="fa-solid fa-user-pen text-slate-400 group-hover:text-dorado"></i>
                     </div>
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 text-xs">Perfil de Autor</span>
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Perfil de Autor</span>
                     <span class="font-bold text-slate-900 leading-tight">Bajo el vuelo del cuervo (Poe)</span>
                 </button>
 
@@ -202,7 +216,7 @@
                     <div class="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-dorado-light transition-colors">
                         <i class="fa-solid fa-book-open text-slate-400 group-hover:text-dorado"></i>
                     </div>
-                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 text-xs">Revista Editorial</span>
+                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Revista Editorial</span>
                     <span class="font-bold text-slate-900 leading-tight">Daz Revista</span>
                 </button>
             </div>
@@ -238,9 +252,14 @@
                     <i class="fa-brands fa-linkedin-in text-dorado"></i>
                     <span class="font-bold text-sm uppercase tracking-widest group-hover:text-dorado transition-colors">LinkedIn</span>
                 </a>
+                <!-- Opción de teléfono directo -->
+                <a href="tel:+34646555778" class="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all border border-white/10 group">
+                    <i class="fa-solid fa-phone text-dorado"></i>
+                    <span class="font-bold text-sm uppercase tracking-widest group-hover:text-dorado transition-colors">Teléfono</span>
+                </a>
                 <a href="mailto:mariapilar.amoedo@gmail.com" class="flex items-center justify-center gap-3 px-8 py-4 bg-dorado hover-bg-dorado rounded-xl transition-all shadow-xl shadow-amber-900/40">
                     <i class="fa-solid fa-envelope text-slate-900"></i>
-                    <span class="font-bold text-sm uppercase tracking-widest text-slate-900">Escríbeme</span>
+                    <span class="font-bold text-sm uppercase tracking-widest text-slate-900 text-center">Escríbeme</span>
                 </a>
             </div>
         </div>
@@ -267,14 +286,10 @@
             const viewerBox = document.getElementById('pdf-viewer-box');
             const externalLink = document.getElementById('pdf-external-link');
 
-            // Generar ruta relativa limpia
             const filePath = "./" + fileName;
-            
-            // Cargar archivo
             pdfIframe.src = filePath;
             externalLink.href = filePath;
 
-            // Mostrar elementos
             placeholder.classList.add('hidden');
             frameContainer.classList.remove('hidden');
             externalLink.style.display = "flex";
