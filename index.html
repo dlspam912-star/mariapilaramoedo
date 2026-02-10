@@ -61,13 +61,23 @@
         }
 
         /* Estilo para la foto de perfil en la cabecera */
-        .profile-img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
+        .profile-container {
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             border: 2px solid var(--dorado);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -75,10 +85,13 @@
 
     <!-- Header / Navegación -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="max-w-5xl mx-auto px-6 py-4 flex flex-col md:row justify-between items-center gap-4 md:flex-row">
+        <nav class="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-4">
-                <!-- Tu foto de perfil -->
-                <img src="imagen.pdf" alt="María Pilar Amoedo" class="profile-img" onerror="this.style.display='none'">
+                <!-- Contenedor de tu foto -->
+                <div class="profile-container">
+                    <!-- Intentamos cargar imagen.pdf. Si no carga, mostrará un icono de usuario -->
+                    <img src="imagen.pdf" alt="María Pilar Amoedo" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Maria+Pilar&background=D4AF37&color=fff'">
+                </div>
                 <div class="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900">
                     MARÍA PILAR <span class="text-dorado">AMOEDO</span>
                 </div>
@@ -135,7 +148,7 @@
 
         <!-- SECCIÓN: COMPETENCIAS -->
         <section id="competencias" class="section-content">
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-12 tracking-tight">Competencias y Aptitudes</h2>
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-12 tracking-tight text-slate-900">Competencias y Aptitudes</h2>
             
             <div class="grid md:grid-cols-2 gap-10">
                 <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-100">
@@ -193,7 +206,7 @@
         <!-- SECCIÓN: PROYECTOS -->
         <section id="proyectos" class="section-content">
             <h2 class="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Proyectos Editoriales</h2>
-            <p class="text-slate-500 text-base md:text-lg mb-10 font-light">Haz clic en un proyecto. Si el visor no se activa, usa el botón de "Abrir en Pantalla Completa".</p>
+            <p class="text-slate-500 text-base md:text-lg mb-10 font-light">Haz clic en un proyecto para visualizarlo.</p>
 
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <button onclick="loadPDF('informe.pdf')" class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-dorado hover:shadow-xl transition-all text-left group">
@@ -224,7 +237,7 @@
             <div id="pdf-viewer-box" class="pdf-container flex flex-col items-center justify-center text-slate-400 border-2 border-dashed border-slate-300">
                 <div id="pdf-placeholder" class="text-center p-10">
                     <i class="fa-solid fa-file-pdf text-6xl mb-6 text-slate-200"></i>
-                    <p class="text-sm font-medium tracking-wide">Selecciona un proyecto para abrir el PDF</p>
+                    <p class="text-sm font-medium tracking-wide">Selecciona un proyecto para abrir el visor</p>
                 </div>
                 
                 <div id="pdf-frame-container" class="hidden w-full h-full relative">
@@ -252,14 +265,16 @@
                     <i class="fa-brands fa-linkedin-in text-dorado"></i>
                     <span class="font-bold text-sm uppercase tracking-widest group-hover:text-dorado transition-colors">LinkedIn</span>
                 </a>
-                <!-- Opción de teléfono directo -->
+                
+                <!-- BOTÓN DE TELÉFONO ACTUALIZADO -->
                 <a href="tel:+34646555778" class="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all border border-white/10 group">
                     <i class="fa-solid fa-phone text-dorado"></i>
-                    <span class="font-bold text-sm uppercase tracking-widest group-hover:text-dorado transition-colors">Teléfono</span>
+                    <span class="font-bold text-sm uppercase tracking-widest group-hover:text-dorado transition-colors">+34 646 555 778</span>
                 </a>
-                <a href="mailto:mariapilar.amoedo@gmail.com" class="flex items-center justify-center gap-3 px-8 py-4 bg-dorado hover-bg-dorado rounded-xl transition-all shadow-xl shadow-amber-900/40">
+
+                <a href="mailto:mariapilar.amoedo@gmail.com" class="flex items-center justify-center gap-3 px-8 py-4 bg-dorado hover:bg-dorado-dark rounded-xl transition-all shadow-xl shadow-amber-900/40">
                     <i class="fa-solid fa-envelope text-slate-900"></i>
-                    <span class="font-bold text-sm uppercase tracking-widest text-slate-900 text-center">Escríbeme</span>
+                    <span class="font-bold text-sm uppercase tracking-widest text-slate-900">Escríbeme</span>
                 </a>
             </div>
         </div>
