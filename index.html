@@ -13,10 +13,10 @@
         }
         
         :root {
-            /* Nueva paleta de colores más suave y femenina */
-            --primario: #fdf2f8; /* Rosa muy suave de fondo */
+            /* Paleta femenina y profesional sugerida */
+            --primario: #fff9f9; 
             --acentos: #dba5a5;  /* Rosa empolvado */
-            --dorado-suave: #d4b483; /* Dorado champagne */
+            --dorado-suave: #d4b483; 
             --texto-oscuro: #4a3f3f;
             --texto-suave: #8c7a7a;
         }
@@ -24,7 +24,6 @@
         .text-dorado { color: var(--dorado-suave); }
         .bg-dorado { background-color: var(--dorado-suave); }
         .border-dorado { border-color: var(--dorado-suave); }
-        .hover-bg-dorado:hover { background-color: #c4a06d; }
 
         .section-content { display: none; }
         .section-content.active { display: block; animation: fadeIn 0.5s ease-out; }
@@ -56,14 +55,6 @@
             border: none;
         }
 
-        .pdf-fallback-btn {
-            display: none;
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            z-index: 20;
-        }
-
         .profile-container {
             width: 55px;
             height: 55px;
@@ -83,7 +74,6 @@
             object-fit: cover;
         }
 
-        /* Estilo para los botones de proyectos */
         .project-card {
             background: white;
             border: 1px solid #fce7f3;
@@ -99,11 +89,12 @@
 </head>
 <body class="bg-[#fff9f9] text-[#4a3f3f] flex flex-col min-h-screen">
 
-    <!-- Header / Navegación -->
+    <!-- Header -->
     <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <nav class="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-4">
                 <div class="profile-container">
+                    <!-- Respaldo para la foto si el PDF no carga como imagen -->
                     <img src="imagen.pdf" alt="María Pilar Amoedo" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Maria+Pilar&background=dba5a5&color=fff'">
                 </div>
                 <div class="text-xl md:text-2xl font-extrabold tracking-tight text-slate-800">
@@ -118,86 +109,46 @@
         </nav>
     </header>
 
-    <!-- Contenido Principal -->
     <main class="flex-grow max-w-5xl mx-auto px-6 py-12 md:py-16 w-full">
         
         <!-- SECCIÓN: EXPERIENCIA -->
         <section id="experiencia" class="section-content active">
             <div class="mb-12 md:mb-16">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-800 text-balance text-center md:text-left">Experiencia Profesional</h1>
-                <p class="text-lg md:text-xl text-[#8c7a7a] font-light max-w-2xl mx-auto md:mx-0 text-center md:text-left">Especialista en comunicación estratégica, gestión de eventos y periodismo de impacto social.</p>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-800 text-center md:text-left">Experiencia Profesional</h1>
+                <p class="text-lg md:text-xl text-[#8c7a7a] font-light text-center md:text-left">Comunicación estratégica, gestión de eventos y periodismo.</p>
             </div>
 
-            <div class="space-y-12 md:space-y-16">
-                <div class="relative pl-8">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#dba5a5] rounded-full"></div>
-                    <span class="inline-block px-3 py-1 bg-[#dba5a5] text-white text-[10px] font-bold uppercase tracking-tighter rounded mb-4 shadow-sm">Actualidad</span>
-                    <h3 class="text-2xl md:text-3xl font-bold text-slate-800">Organizadora de TEDxCesine</h3>
-                    <p class="text-base md:text-lg text-slate-600 mt-3 leading-relaxed">
-                        Liderando la organización integral del evento <strong class="text-[#dba5a5]">"Regénesis"</strong>. 
-                        Responsable de la narrativa de marca, curación de ponentes y gestión de equipos multidisciplinares.
-                    </p>
+            <div class="space-y-12">
+                <div class="relative pl-8 border-l-2 border-[#dba5a5]">
+                    <span class="inline-block px-3 py-1 bg-[#dba5a5] text-white text-[10px] font-bold uppercase rounded mb-4">Actualidad</span>
+                    <h3 class="text-2xl font-bold text-slate-800">Organizadora de TEDxCesine</h3>
+                    <p class="text-slate-600 mt-2">Liderando la organización integral del evento "Regénesis".</p>
                 </div>
-
-                <div class="relative pl-8">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-200 rounded-full"></div>
-                    <span class="inline-block px-3 py-1 bg-slate-100 text-slate-400 text-[10px] font-bold uppercase tracking-tighter rounded mb-4">Eventos</span>
-                    <h3 class="text-2xl md:text-3xl font-bold text-slate-800">Coorganización Fashion Show 2025</h3>
-                    <p class="text-base md:text-lg text-slate-600 mt-3 leading-relaxed">
-                        Gestión logística y coordinación de backstage en el Escenario de Santander.
-                    </p>
-                </div>
-
-                <div class="relative pl-8">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-200 rounded-full"></div>
-                    <span class="inline-block px-3 py-1 bg-slate-100 text-slate-400 text-[10px] font-bold uppercase tracking-tighter rounded mb-4">Formación</span>
-                    <h3 class="text-2xl md:text-3xl font-bold text-slate-800">Doble Grado Universitario</h3>
-                    <p class="text-base md:text-lg text-slate-600 mt-3">Publicidad, Marketing, RRPP y Periodismo | <span class="font-semibold italic text-[#dba5a5]">CESINE</span>.</p>
+                <div class="relative pl-8 border-l-2 border-slate-200">
+                    <span class="inline-block px-3 py-1 bg-slate-100 text-slate-400 text-[10px] font-bold uppercase rounded mb-4">Eventos</span>
+                    <h3 class="text-2xl font-bold text-slate-800">Coorganización Fashion Show 2025</h3>
+                    <p class="text-slate-600 mt-2">Gestión logística y backstage en Santander.</p>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN: COMPETENCIAS -->
         <section id="competencias" class="section-content">
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-12 tracking-tight text-slate-800">Competencias y Aptitudes</h2>
-            
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-12 tracking-tight text-slate-800 text-center md:text-left">Competencias</h2>
             <div class="grid md:grid-cols-2 gap-10">
-                <div class="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm border border-pink-50">
-                    <h3 class="text-xl md:text-2xl font-bold mb-8 flex items-center text-slate-800">
-                        <i class="fa-solid fa-language mr-4 text-[#dba5a5]"></i> Idiomas
-                    </h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2 uppercase text-[10px] font-bold tracking-widest text-[#8c7a7a]">
-                                <span>Español</span>
-                                <span>Nativo</span>
-                            </div>
-                            <div class="w-full bg-pink-50 h-2 rounded-full overflow-hidden">
-                                <div class="bg-[#dba5a5] h-2 w-full"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2 uppercase text-[10px] font-bold tracking-widest text-[#8c7a7a]">
-                                <span>Inglés</span>
-                                <span>C1 Advanced</span>
-                            </div>
-                            <div class="w-full bg-pink-50 h-2 rounded-full overflow-hidden">
-                                <div class="bg-[#dba5a5] h-2 w-[90%]"></div>
-                            </div>
-                        </div>
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-pink-50">
+                    <h3 class="text-xl font-bold mb-6 flex items-center"><i class="fa-solid fa-language mr-4 text-[#dba5a5]"></i> Idiomas</h3>
+                    <div class="space-y-4">
+                        <p class="text-sm font-bold text-[#8c7a7a] uppercase">Español - Nativo</p>
+                        <p class="text-sm font-bold text-[#8c7a7a] uppercase">Inglés - C1 Advanced</p>
                     </div>
                 </div>
-
-                <div class="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm border border-pink-50">
-                    <h3 class="text-xl md:text-2xl font-bold mb-8 flex items-center text-slate-800">
-                        <i class="fa-solid fa-bolt mr-4 text-[#dba5a5]"></i> Herramientas
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-pink-50/50 border border-pink-100 rounded-full text-xs md:text-sm font-medium hover:border-[#dba5a5] transition-colors">Illustrator</span>
-                        <span class="px-4 py-2 bg-pink-50/50 border border-pink-100 rounded-full text-xs md:text-sm font-medium hover:border-[#dba5a5] transition-colors">Photoshop</span>
-                        <span class="px-4 py-2 bg-pink-50/50 border border-pink-100 rounded-full text-xs md:text-sm font-medium hover:border-[#dba5a5] transition-colors">InDesign</span>
-                        <span class="px-4 py-2 bg-pink-50/50 border border-pink-100 rounded-full text-xs md:text-sm font-medium hover:border-[#dba5a5] transition-colors">Gestión de Eventos</span>
-                        <span class="px-4 py-2 bg-pink-50/50 border border-pink-100 rounded-full text-xs md:text-sm font-medium hover:border-[#dba5a5] transition-colors">RRPP</span>
+                <div class="bg-white p-8 rounded-[2rem] shadow-sm border border-pink-50">
+                    <h3 class="text-xl font-bold mb-6 flex items-center"><i class="fa-solid fa-bolt mr-4 text-[#dba5a5]"></i> Herramientas</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-pink-50 border border-pink-100 rounded-full text-xs">Illustrator</span>
+                        <span class="px-4 py-2 bg-pink-50 border border-pink-100 rounded-full text-xs">Photoshop</span>
+                        <span class="px-4 py-2 bg-pink-50 border border-pink-100 rounded-full text-xs">InDesign</span>
                     </div>
                 </div>
             </div>
@@ -205,112 +156,80 @@
 
         <!-- SECCIÓN: PROYECTOS -->
         <section id="proyectos" class="section-content">
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-800">Proyectos Editoriales</h2>
-            <p class="text-[#8c7a7a] text-base md:text-lg mb-10 font-light">Explora mis últimos trabajos de investigación y diseño.</p>
-
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-12 tracking-tight text-slate-800 text-center md:text-left">Proyectos</h2>
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <button onclick="loadPDF('informe.pdf')" class="project-card p-6 text-left group">
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#dba5a5] transition-colors">
-                        <i class="fa-solid fa-magnifying-glass text-[#dba5a5] group-hover:text-white"></i>
+                        <i class="fa-solid fa-file-pdf text-[#dba5a5] group-hover:text-white"></i>
                     </div>
-                    <span class="block text-[10px] font-bold text-[#8c7a7a] uppercase tracking-widest mb-1">Investigación</span>
-                    <span class="font-bold text-slate-800 leading-tight">La vida que no aparece en los informes</span>
+                    <span class="font-bold text-slate-800">Informe Investigación</span>
                 </button>
-
                 <button onclick="loadPDF('poe.pdf')" class="project-card p-6 text-left group">
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#dba5a5] transition-colors">
-                        <i class="fa-solid fa-user-pen text-[#dba5a5] group-hover:text-white"></i>
+                        <i class="fa-solid fa-file-pdf text-[#dba5a5] group-hover:text-white"></i>
                     </div>
-                    <span class="block text-[10px] font-bold text-[#8c7a7a] uppercase tracking-widest mb-1">Perfil</span>
-                    <span class="font-bold text-slate-800 leading-tight">Bajo el vuelo del cuervo</span>
+                    <span class="font-bold text-slate-800">Perfil Poe</span>
                 </button>
-
                 <button onclick="loadPDF('daz.pdf')" class="project-card p-6 text-left group">
                     <div class="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#dba5a5] transition-colors">
-                        <i class="fa-solid fa-book-open text-[#dba5a5] group-hover:text-white"></i>
+                        <i class="fa-solid fa-file-pdf text-[#dba5a5] group-hover:text-white"></i>
                     </div>
-                    <span class="block text-[10px] font-bold text-[#8c7a7a] uppercase tracking-widest mb-1">Revista</span>
-                    <span class="font-bold text-slate-800 leading-tight">Daz Revista</span>
+                    <span class="font-bold text-slate-800">Daz Revista</span>
                 </button>
             </div>
-
-            <div id="pdf-viewer-box" class="pdf-container flex flex-col items-center justify-center text-slate-400 border-2 border-dashed border-pink-200 bg-white">
-                <div id="pdf-placeholder" class="text-center p-10">
-                    <i class="fa-solid fa-file-pdf text-6xl mb-6 text-pink-50"></i>
-                    <p class="text-sm font-medium tracking-wide text-[#8c7a7a]">Selecciona un proyecto para abrir el visor</p>
+            <div id="pdf-viewer-box" class="pdf-container flex items-center justify-center border-2 border-dashed border-pink-200 bg-white">
+                <div id="pdf-placeholder" class="text-center">
+                    <i class="fa-solid fa-file-pdf text-6xl mb-4 text-pink-50"></i>
+                    <p class="text-sm text-[#8c7a7a]">Selecciona un proyecto</p>
                 </div>
-                
-                <div id="pdf-frame-container" class="hidden w-full h-full relative">
-                    <iframe id="pdf-iframe" src="" class="w-full h-full"></iframe>
-                    
-                    <a id="pdf-external-link" href="#" target="_blank" class="pdf-fallback-btn flex items-center gap-2 px-6 py-3 bg-[#dba5a5] text-white font-bold rounded-full shadow-lg hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-up-right-from-square"></i> Abrir en Pantalla Completa
-                    </a>
-                </div>
+                <iframe id="pdf-iframe" class="hidden w-full h-full"></iframe>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-14 px-6 mt-auto">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="text-center md:text-left">
-                <p class="font-bold text-2xl tracking-tighter uppercase">MARÍA PILAR <span class="text-[#dba5a5]">AMOEDO</span></p>
-                <p class="text-slate-400 text-sm mt-2 font-medium tracking-wide">Santander | Publicidad, Marketing & Periodismo</p>
+                <p class="font-bold text-2xl uppercase">MARÍA PILAR <span class="text-[#dba5a5]">AMOEDO</span></p>
+                <p class="text-slate-400 text-sm mt-2">Publicidad, Marketing & Periodismo</p>
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <a href="https://www.linkedin.com/in/maría-pilar-amoedo-levchenko-b213342ba" target="_blank" class="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all border border-white/10 group">
+                <a href="https://www.linkedin.com/in/maría-pilar-amoedo-levchenko-b213342ba" target="_blank" class="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 group transition-all">
                     <i class="fa-brands fa-linkedin-in text-[#dba5a5]"></i>
-                    <span class="font-bold text-sm uppercase tracking-widest group-hover:text-[#dba5a5] transition-colors">LinkedIn</span>
+                    <span class="font-bold text-sm uppercase group-hover:text-[#dba5a5]">LinkedIn</span>
                 </a>
                 
-                <!-- BOTÓN DE TELÉFONO ACTUALIZADO SEGÚN TU PETICIÓN -->
-                <a href="tel:+34646555778" class="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all border border-white/10 group">
+                <!-- BOTÓN SOLICITADO: Solo texto "Teléfono" -->
+                <a href="tel:+34646555778" class="flex items-center justify-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/10 group transition-all">
                     <i class="fa-solid fa-phone text-[#dba5a5]"></i>
-                    <span class="font-bold text-sm uppercase tracking-widest group-hover:text-[#dba5a5] transition-colors">Teléfono</span>
+                    <span class="font-bold text-sm uppercase group-hover:text-[#dba5a5]">Teléfono</span>
                 </a>
 
-                <a href="mailto:mariapilar.amoedo@gmail.com" class="flex items-center justify-center gap-3 px-8 py-4 bg-[#dba5a5] hover:bg-[#c49494] rounded-2xl transition-all shadow-xl shadow-pink-900/20">
-                    <i class="fa-solid fa-envelope text-white"></i>
-                    <span class="font-bold text-sm uppercase tracking-widest text-white">Escríbeme</span>
+                <a href="mailto:mariapilar.amoedo@gmail.com" class="flex items-center justify-center gap-3 px-8 py-4 bg-[#dba5a5] hover:bg-[#c49494] rounded-2xl shadow-xl transition-all">
+                    <span class="font-bold text-sm uppercase text-white">Escríbeme</span>
                 </a>
             </div>
-        </div>
-        <div class="max-w-5xl mx-auto mt-12 pt-8 border-t border-white/5 text-center text-slate-500 text-[10px] uppercase tracking-[0.3em]">
-            © 2024 MARÍA PILAR AMOEDO • Todos los derechos reservados
         </div>
     </footer>
 
     <script>
         function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section-content');
-            sections.forEach(s => s.classList.remove('active'));
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
             document.getElementById('btn-' + sectionId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function loadPDF(fileName) {
+            const iframe = document.getElementById('pdf-iframe');
             const placeholder = document.getElementById('pdf-placeholder');
-            const frameContainer = document.getElementById('pdf-frame-container');
-            const pdfIframe = document.getElementById('pdf-iframe');
-            const viewerBox = document.getElementById('pdf-viewer-box');
-            const externalLink = document.getElementById('pdf-external-link');
-
-            const filePath = "./" + fileName;
-            pdfIframe.src = filePath;
-            externalLink.href = filePath;
-
+            iframe.src = "./" + fileName;
+            iframe.classList.remove('hidden');
             placeholder.classList.add('hidden');
-            frameContainer.classList.remove('hidden');
-            externalLink.style.display = "flex";
-            
-            viewerBox.classList.remove('border-dashed');
-            viewerBox.classList.add('border-solid', 'border-[#dba5a5]');
+            document.getElementById('pdf-viewer-box').classList.add('border-solid', 'border-[#dba5a5]');
         }
     </script>
 </body>
